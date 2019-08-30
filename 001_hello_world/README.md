@@ -60,6 +60,8 @@ pre-process only.
 Now open the generated `helloworld.p` and you will see that it is still C code but a much larger file. And if you scroll to
 the bottom of your file you will find your `main` function.
 
+![including stdio.h](include.png)
+
 ## Return
 
 The return value of `main` is the exit code of the program. This can be used to tell the users that the tool was

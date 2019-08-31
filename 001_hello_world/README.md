@@ -47,7 +47,7 @@ which results in the same output as the example before.
 
 ## Include
 The `#include` command is, like any other command starting with `#`, a command for the `pre-processor`. The
-`pre-processor` does pure text replacement. This means that the line `#include <stdio.>` gets actually replaced with the
+`pre-processor` does pure text replacement. This means that the line `#include <stdio.h>` gets actually replaced with the
 content of the given file, in this case the `stdio.h` header file. And this works in a nested way, which means that all
 header files included by `stdio.h` are also inserted at the corresponding `#include` lines.
 

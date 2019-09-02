@@ -68,8 +68,11 @@ The return value of `main` is the exit code of the program. This can be used to 
 executed successfully (return value is 0) or that the tool had a problem during execution (return value is different from 0)
 Let's test it.
 
-If you want to know the actual exit code of your program after you executed it just type `echo $?` in your bash shell to
-display the exit code of the last command executed.
+If you want to know the actual exit code of your program after you executed it just type
+
+    echo $?
+
+in your bash shell to display the exit code of the last command executed.
 Then change in your code the return value to something else than zero, compile, run, and echo again the exit code.
 It should be now the value you provided to the return line. Be aware that tools like *GNU make* and bash mechanisms like
 `&&` and `||` use this exact return value to decide how to proceed, so it's an important feature.

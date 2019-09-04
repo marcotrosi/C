@@ -47,3 +47,9 @@ char   | meaning
 `%lf`  | converts a floating-point number (`double`) to the decimal notation
 `%Lf`  | converts a floating-point number (`long double`) to the decimal notation
 
+***
+
+> **Core Message**
+>
+> Be always aware of what you are doing, of the data type sizes, value interpretation and the
+> respective data ranges. Select the right data type for the purpose you need.

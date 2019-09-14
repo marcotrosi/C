@@ -152,6 +152,7 @@ It doesn't matter wheather we write 0/1, false/true, low/high, no/yes or any oth
 `1`|`0`|`0`
 `1`|`1`|`1`
 
+
 `a`|`b`|`a || b`
 ---|---|-------
 `0`|`0`|`0`
@@ -159,8 +160,9 @@ It doesn't matter wheather we write 0/1, false/true, low/high, no/yes or any oth
 `1`|`0`|`1`
 `1`|`1`|`1`
 
+
 `a`|`!a`
----|-------
+---|----
 `0`|`1`
 `1`|`0`
 

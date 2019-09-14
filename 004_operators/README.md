@@ -181,7 +181,7 @@ OPERATOR NAME       | SYNTAX
 --------------------|-------
 Bitwise NOT         |`~a`
 Bitwise AND         |`a & b`
-Bitwise OR          |`a | b`
+Bitwise OR          |`a \| b`
 Bitwise XOR         |`a ^ b`
 Bitwise left shift  |`a << b`
 Bitwise right shift |`a >> b`
@@ -213,7 +213,7 @@ OPERANDS/RESULT | VALUE
 ----------------|----------
 `a`             |`01001110`
 `b`             |`01101001`
-`a | b`         |`01101111`
+`a \| b`         |`01101111`
 
 ### Bitwise XOR
 
@@ -252,5 +252,4 @@ OPERANDS/RESULT | VALUE
 ----------------|----------
 `a`             |`01001110`
 `a >> 3`        |`00001001`
-
 

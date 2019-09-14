@@ -139,7 +139,7 @@ OPERATOR NAME          | SYNTAX
 -----------------------|-------
 Logical negation (NOT) |`!a`
 Logical AND            |`a && b`
-Logical OR             |`a || b`
+Logical OR             |`a \|\| b`
 
 The result of the logical operators are also boolean-like.
 Let's have a look at the logic tables of these operators.
@@ -153,7 +153,7 @@ It doesn't matter wheather we write 0/1, false/true, low/high, no/yes or any oth
 `1`|`1`|`1`
 
 
-`a`|`b`|`a || b`
+`a`|`b`|`a \|\| b`
 ---|---|-------
 `0`|`0`|`0`
 `0`|`1`|`1`

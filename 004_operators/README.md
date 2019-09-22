@@ -43,11 +43,11 @@ The assignment operator can also be used in combination with a variable declarat
 If we ignore for now the data ranges there is not so much to learn about `+`, `-`, and `*`. But for the division
 operator `/` I need to say some words.
 
-It is not allowed to divide by 0, because a divsion by 0 is not defined.
+It is not allowed to divide by 0, because a division by 0 is not defined.
 So you always have to ensure that your divisor is different from 0.
 
-Another thing you might ask yourself - what happens if the result of an integer divsion would result in a fraction?
-Be aware that we are only talking about integer divisons. We will talk about other variants when we talk about data
+Another thing you might ask yourself - what happens if the result of an integer division would result in a fraction?
+Be aware that we are only talking about integer divisions. We will talk about other variants when we talk about data
 types and casts.
 
     printf("%d", 5/3); // 5/3 would theoretically result in 1.66666667, but the fractional part gets ignored completely.
@@ -143,7 +143,7 @@ Logical OR             |`a \|\| b`
 
 The result of the logical operators are also boolean-like.
 Let's have a look at the logic tables of these operators.
-It doesn't matter wheather we write 0/1, false/true, low/high, no/yes or any other binary representant.
+It doesn't matter whether we write 0/1, false/true, low/high, no/yes or any other binary representative.
 
 `a`|`b`|`a && b`
 ---|---|-------
@@ -253,3 +253,172 @@ OPERANDS/RESULT | VALUE
 `a`             |`01001110`
 `a >> 3`        |`00001001`
 
+## Applications for bitwise operations
+
+### Setting and unsetting bits using bitwise operations
+
+Especially in microcontroller development it is often necessary to set or unset specific bits.
+Because the microcontroller registers can be used to configure the functionality of the microcontroller.
+Often you have to set or unset specific bits, which have a certain meaning, but without changing the other
+bits.
+
+In the following examples I will write the binary and hex values.
+
+#### Setting bits
+
+Let's say we have an 8bit register with the following content ...
+
+    10110110 (0xB6)
+
+And we want to set the bit at position zero, means the most right bit.
+So the result would be ...
+
+    10110111 (0xB7)
+
+How can this be achieved with bitwise operations?
+We have to use the bitwise OR for setting bits. Let's check that out.
+
+
+      10110110 (0xB6)
+    | 00000001 (0x01) => apply bitmask
+      ---------------
+      10110111 (0xB7)
+
+If you check the logic table of the OR operator, then you will notice that as soon one of the two bits at each position
+is 1 the result is 1.
+So we can use the pattern `00000001` to keep the bits 1-7 unchanged and to set bit 0 explicitly to 1.
+Generally speaking setting bits can be done with the following two rules
+
+- use bitwise OR
+- a 0 doesn't change the other operands bits
+- a 1 sets the bit
+
+What if we want to set another bit? Or maybe multiple bits? No problem. Just follow the 2 rules.
+If we want to set the bit at position 3, then use ...
+
+      10110110 (0xB6)
+    | 00001000 (0x08) => apply bitmask
+      ---------------
+      10111110 (0xBE)
+
+And one more trick. You can create these bits by shifting a 1 to the desired position.
+`00000001 (0x01)` is basically `0x01 << 0` a zero shifted `1`.
+`00001000 (0x08)` is `0x01 << 3` means a `1` shifted `3` bits to the left and so it ends up on position 3.
+Wow, that's easy to remember.
+
+
+
+#### Unsetting bits
+
+Here we need the bitwise AND. Because it's like to opposite of the OR operator. If one of the 2 bits at each position is
+0, the result is 0 for that position.
+
+Let's say we want to unset bit 7. You can also say you want to set it to 0. Just a different wording.
+
+      10110110 (0xB6)
+    & 01111111 (0x7F) => apply (inverted) bitmask
+      ---------------
+      00110110 (0x36)
+
+- use bitwise AND
+- a 0 unsets the bit, or sets it to 0
+- a 1 doesn't change the bit of the other operand
+
+Can the so called *bitmask* also be generated as we did before with the bitwise OR? Yes.
+We shift the 1 to the position we need, and then we invert bitwise all the bits.
+`00000001 << 7` is `10000000`, and now invert using `~`, `01111111`. Done.
+
+
+### Checking if bits are set
+
+Sometimes you have to check if certain bits are set or not. How can this be achieved?
+
+Let's say we have the following value ...
+
+    01010111 (0x57)
+
+and we want to know if bit 0 (most right bit) is set or not. We can set all other bits to 0 and now we can look at the
+whole number. If the whole number is 0 then the bit was not set, if the whole number is 1 then the bit was set.
+
+      01010111 (0x57)
+    & 00000001 (0x01) => apply bitmask
+      ---------------
+      00000001 (0x01) => value is 1, bit was set
+
+Now an example where the bit is not set.
+
+      01010110 (0x56)
+    & 00000001 (0x01) => apply bitmask
+      ---------------
+      00000000 (0x00) => value is 0, bit was not set
+
+
+### Extracting bits
+
+This is the same as in the previous section for checking bits, but with one more step.
+We additionally have to shift to the right.
+
+      01101001 (0x69)
+
+Let's say we want to store the bits 3-5 into a variable.
+
+       01101001 (0x69)
+     & 00111000 (0x38) => apply bitmask
+       ---------------
+       00101000 (0x28)
+    >> 00000011 (0x03) => shift to right by 3
+       ---------------
+       00000101 (0x05)
+
+
+## Compound assignment operators
+
+Some operators can be combined directly with an assignment.
+
+    +=, -=, *=, /=, %=, <<=, >>=, &=, ^=, |=
+
+But they are just another way of writing assignment and operator in case LHS of both operators is the same variable.
+
+    a = a + b;
+
+Can be written as ...
+
+    a += b;
+
+Because `a` is left from `=` and `+`.
+
+I do not recommend the usage because it can be overseen easily and you should write code that can be understood quickly
+without making mistakes.
+
+
+## Operator precedence
+
+Operators have a certain [precedence](https://en.cppreference.com/w/c/language/operator_precedence), means the order of
+evaluation is not only from left to right, the order depends also on the operators.
+
+    x = a * b + c;
+    x = c + a * b;
+
+How are these 2 lines evaluated? It's twice the same because multiplication is calculated before addition.
+But we want to read and understand code fast and so I highly recommend using parentheses to control or highlight the
+operator precedence explicitly.
+
+    x = (a * b) + c;
+
+Even if you think now that this is useless, especially for `*` and `+`, but trust me it gets more complicated with the
+other operators, and the past decades have shown that it's smart to avoid human mistakes wherever possible.
+
+
+> **Core Messages**
+>
+> Modulo % gives the remainder of a division with rest/remainder.
+>
+> Attention with the pre and post notation of the increment and decrement operators.
+>
+> Bitwise operators are important on microcontrollers. 
+>
+> Compound assignment operators may be overseen.
+>
+> Write readable and understandable code.
+>
+> Don't rely on operator precedence and use parentheses.

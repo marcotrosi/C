@@ -374,7 +374,7 @@ Read the result right from the R bottom to top.
     0xBB8
 
 
-> **Core Message**
+> **Core Messages**
 >
 > The values of each bit are simply 2^bitpos, and they are just doubling with every position. 1, 2, 4, 8, 16, ...
 >

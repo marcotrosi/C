@@ -1,14 +1,14 @@
 
-#Flow Control
+# Flow Control
 
 We learned a bit about datatypes and operators. To do some proper coding we also need to learn about the flow control
 mechanisms of the C language. 
 
 I’m sure you have heard of if-else, for-loop, while-loop, etc., and that’s exactly what we will talk about in this chapter.
 
-##Decisions
+## Decisions
 
-###if-statement 
+### if-statement 
 
 The if-statement is used to execute the next statement only if a certain condition is fulfilled, means if the condition
 evaluates to true, means in C is non-zero.
@@ -37,7 +37,7 @@ only when `x` is bigger than `10`, but that's not the case. The assignment is ex
 controls only the very next statement, and C doesn't care about your indentation. You could even write a whole program
 in a single line.
 
-####comma operator
+#### comma operator
 But how to execute the assignment along with the printf?
 
 One very stupid solution would be to use the *comma* operator. The *comma* operator? Yes, and we haven’t talked about the
@@ -49,7 +49,7 @@ comma operator yet because I don’t recommend its usage in “normal” lines o
 Don't do it! It's not readable. It's confusing and often you need way more expressions than just 2 and your code quickly
 becomes cluttered.
 
-####goto
+#### goto
 But what else could be used?
 
 C has something called `goto`. You can define *labels* and jump to them with the `goto` keyword. In our case we could do again
@@ -72,7 +72,7 @@ If you really have to use goto someday, you should follow the following 2 rules 
 
 But everything can be solved also without goto. It's not needed.
 
-####grouping statements
+#### grouping statements
 
 Okay enough bad code seen for today. I show you how it is done properly. You can group the statements using curly braces
 like this ...
@@ -87,7 +87,7 @@ All the statements within the curly braces become a single statement for the if-
 use curly braces even if it is only a single statement, because it's much more readable this way and when you have to add
 more lines then you are already prepared.
 
-####coding style
+#### coding style
 
 One more thing regarding the curly braces. But this is a personal preference and such discussion can trigger a holy
 style war in forums. 
@@ -116,7 +116,7 @@ But that's just my style and you have to find your own. If you have to indent co
 [uncrustify](https://github.com/uncrustify/uncrustify). It’s a code beautifier with many control options.
 
 
-###if-else-statement
+### if-else-statement
 
 Sometimes you don't only want or don't want to execute lines of code, but you want to execute other lines of code
 instead.
@@ -149,7 +149,7 @@ But there is a subtle difference between the first and the second solution. In t
 evaluated always. In the second solution there is only one if condition that can be evaluated and if this expression
 evaluates to false then the execution immediately continues in the else branch.
 
-###the ternary operator
+### the ternary operator
 
 There is one more operator we haven't talked about yet, and this operator is like an inline-if-else. The ternary operator. 
 
@@ -175,7 +175,7 @@ and the output would be ...
 AND THIS my fellow friends, is how you avoid messages like *"the tool found 1 errors"*. Uh, disgusting and so easy to
 fix as you can see.
 
-###if-else if-else
+### if-else if-else
 
 In C you can have kind of nested if-else blocks to get multiple decisions. Other languages have extra keywords for that.
 Python - elif. Lua - elseif. Perl - elsif. In C the syntax is as follows ...
@@ -201,7 +201,7 @@ Python - elif. Lua - elseif. Perl - elsif. In C the syntax is as follows ...
 Of course you can nest as often as you want. Here again as soon as an expression evaluates to true the remaining
 expressions are not evaluated anymore. This leads us directly to the switch-case-statement.
 
-###switch-case
+### switch-case
 
 switch-case statements can be used similar to the if-else if-else-statement. The result of `<expression>`, which is most
 of the time just a variable, decides to which case to jump and executes the code there.
@@ -360,7 +360,7 @@ If you like you can also use curly braces for each `case`.
 This can give you some advantages when editing code with editors like Vim, which have certain features to select, copy,
 delete, etc. regions quickly. Or when your editor can fold regions surrounded by curly braces.
 
-##Loops
+## Loops
 
 Often it is necessary to repeat some code. To avoid repetitive lines of code we can use various types of loops, which
 allow repeating code in an elegant way. C has 3 different loops. The for-loop, the while-loop and the do-while-loop
@@ -369,7 +369,7 @@ allow repeating code in an elegant way. C has 3 different loops. The for-loop, t
 The for-loop is usually used when you know how often you have to repeat a piece of code. The while-loop is used for zero
 or more iterations, and the do-while loop is used for 1 or more iterations.
 
-###for-loop
+### for-loop
 
     for(<initialization>; <condition>; <increment>)
     {
@@ -403,7 +403,7 @@ Coming back to the comma operator. The loop control might be a legit location fo
     }
 
 
-###break
+### break
 
 The `break` keyword, which we learned before when we talked about switch-case, can also be used to immediately quit
 any type of loop. The code execution continues right after the loop.
@@ -439,7 +439,7 @@ This gives the following output ...
 
 ... because when `i` is 7 then the loop quits immediately.
 
-###continue
+### continue
 
 There is also the `continue` keyword, that skips the rest of the current loop iteration and starts immediately the next
 iteration. Here another useless example to demo the behavior of `continue`.
@@ -478,7 +478,7 @@ And the output will be ...
 `printf` was never reached, and the next iteration was started immediately.
 
 
-###while-loop
+### while-loop
 
     while(<condition>)
     {
@@ -489,7 +489,7 @@ As long as the condition is fulfilled the code within the curly braces is execut
 control.
 
 
-###do-while-loop
+### do-while-loop
 
     do
     {
@@ -502,7 +502,7 @@ The do-while-loop is just like the while-loop but it enters at least ones becaus
 each iteration. Use `break` and `continue` for more control.
 
 
-###endless loops
+### endless loops
 
 The term *endless loop* can be interpreted in two ways.
 

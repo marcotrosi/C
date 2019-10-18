@@ -172,7 +172,7 @@ non-zero but it is not specified which non-zero value. Do not assume or rely on 
 
 ## Bitwise Operators
 
-Before you start with this section be sure to have understood [03_binary_and_hex_number_system](03_binary_and_hex_number_system/README.md).
+Before you start with this section be sure to have understood [03_binary_and_hex_number_system](../03_binary_and_hex_number_system/README.md).
 
 The bitwise operators are, as the name implies, applied to every single bit of their operands.
 

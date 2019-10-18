@@ -4,15 +4,25 @@ There are actually some things about the classical HelloWorld program that we ca
 
 ## Structure
 
+    /*
+     Author: Marco Trosi
+     Date: 2019-09-21
+    */
+
     #include <stdio.h>
      
     int main(void)
     {
-       printf("hello\nworld\n");
+       printf("hello\nworld\n"); // print string on terminal
      
        return 0;
     }
 
+One of the first things you should learn about every language is "how to write comments". Because comments are very
+important as they provide usually a lot of information that is not obvious just by reading the code. C has 2 types of
+comments. Multiline comments and since C99 also the C++\_like single line comments. The classic multiline comments start
+with `/*` and end with `*/` and can not be nested. The single line comments start anywhere in the line with `//` and
+make the rest of the line a comment.
 
 `#include <stdio.h>` is needed to tell the compiler how the declaration of `printf` looks like. So the compiler can
 check if we used `printf` with the correct parameters. A common term is *"to make the function known"*.

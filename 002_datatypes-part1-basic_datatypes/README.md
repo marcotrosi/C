@@ -15,6 +15,12 @@ Here an example graphic and remember 1Byte == 8Bits
 Read and run the datatypes.c file and learn which data types exist, how large they are and which min and max values they
 can hold on your system.
 
+## Nibble, Byte, Word
+A quick side note just in case you come across these words. We know a Byte is 8 Bits. There is also the so called
+*nibble* which is 4 Bits. And there is also the term *word* which depends on the architecure of your system. If we talk
+about a 16 Bit microcontroller then a word is 16 Bit, which is 2 Bytes. If your system is 32 Bits wide then a *word* is
+4 Bytes, and so on.
+
 ## Interpretation
 
 Every value, and they all are just a bunch of 1s and 0s, needs to be interpreted, and this is done by providing each

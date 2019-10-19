@@ -87,7 +87,7 @@ Then change in your code the return value to something else than zero, compile, 
 It should be now the value you provided to the return line. Be aware that tools like *GNU make* and bash mechanisms like
 `&&` and `||` use this exact return value to decide how to proceed, so it's an important feature.
 
-***
+---
 
 > **Core Message**
 >

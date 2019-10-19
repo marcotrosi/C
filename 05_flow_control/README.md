@@ -525,6 +525,7 @@ Here some ways to create endless loops as in described under point #2.
         // take care of loop break inside loop body
     }
 
+---
 
 > **Core Messages**
 >

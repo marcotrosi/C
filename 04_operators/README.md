@@ -408,6 +408,7 @@ operator precedence explicitly.
 Even if you think now that this is useless, especially for `*` and `+`, but trust me it gets more complicated with the
 other operators, and the past decades have shown that it's smart to avoid human mistakes wherever possible.
 
+---
 
 > **Core Messages**
 >

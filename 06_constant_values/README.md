@@ -186,7 +186,7 @@ of elements in that enum without that last element `NumOfConfigs`.
 This way your for loop always does the correct number of iterations no matter how many elements you add to or remove
 from your enumeration in the future.
 
-***
+---
 
 > **Core Messages**
 >

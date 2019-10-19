@@ -53,7 +53,7 @@ char   | meaning
 `%lf`  | converts a floating-point number (`double`) to the decimal notation
 `%Lf`  | converts a floating-point number (`long double`) to the decimal notation
 
-***
+---
 
 > **Core Message**
 >

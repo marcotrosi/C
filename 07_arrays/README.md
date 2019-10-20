@@ -54,6 +54,8 @@ Arrays, just like other variables, can be initialized at the declaration.
 
     int MyArray[3] = {12, 65, 987};
 
+![array](array.png)
+
 You can also initialize only a part of that array. The rest will be initialized with zeros automatically.
 
     int MyArray[3] = {12};

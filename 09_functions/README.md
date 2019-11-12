@@ -144,6 +144,7 @@ The same goes for the function call. Theoretically the `printf()` could look lik
     printf("%lf\n", calcCylinderVolume(Radius, Height));
 
 ... without storing the result first. See, I placed the function call right where the variable was before.
+You can imagine that after executing `calcCylinderVolume()` the return value of that function takes its place.
 
 ## Naming Functions
 
@@ -196,6 +197,8 @@ otherwise you can not use macros in a nesting way.
 ---
 
 > **Core Message**
+>
+> Split function declaration and function definition.
 >
 > Function names should start with a verb if possible.
 >

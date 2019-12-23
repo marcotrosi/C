@@ -9,3 +9,4 @@
 * [07_arrays](07_arrays/README.md)
 * [08_datatypes - part2 - custom datatypes](08_datatypes-part2-custom_datatypes/README.md)
 * [09_functions](09_functions/README.md)
+* [10_pointers](10_pointers/README.md)

@@ -4,7 +4,7 @@
 C has some ways to provide constant values. But upfront we talk quickly about literals and why it is useful to use constant
 values.
 
-## literals
+## Literals
 
 What is a literal? Simply the fix values you are using for example to initialize your variables. 
 

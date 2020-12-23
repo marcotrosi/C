@@ -1,5 +1,7 @@
 # C
 
+## Preface
+
 Hello and welcome,
 
 this repository contains a growing list of chapters that try to explain the C programming language. If you know another
@@ -8,6 +10,10 @@ trying to explain it maybe a bit different then you might know from C books, but
 wording/perspective and some handcrafted images combined with the knowledge you already have might help you to
 understand more and close some gaps. More chapters will follow. Any feedback is appreciated. The examples might often be
 from a unixoid perspective, just that you know.
+
+Have fun
+
+## Table Of Content
 
 * [01_hello_world](01_hello_world/README.md)
 * [02_data_types - part 1 - basic data types](02_datatypes-part1-basic_datatypes/README.md)
@@ -20,3 +26,17 @@ from a unixoid perspective, just that you know.
 * [09_functions](09_functions/README.md)
 * [10_pointers](10_pointers/README.md)
 * [13_modules_and_libs](13_modules_and_libs/README.md)
+
+## Resources
+
++ Learning C
+	+ [en.wikibooks.org/wiki/C_Programming](en.wikibooks.org/wiki/C_Programming)
+	+ [tutorialspoint.com/cprogramming/index.htm](tutorialspoint.com/cprogramming/index.htm)
+	+ [cprogramming.com](cprogramming.com)
+	+ [freecodecamp.org/news/the-c-beginners-handbook](freecodecamp.org/news/the-c-beginners-handbook)
+	+ [programiz.com/c-programming](programiz.com/c-programming)
+	+ [w3resource.com/c-programming-exercises](w3resource.com/c-programming-exercises)
++ Reference
+	+ [en.cppreference.com/w/c](en.cppreference.com/w/c)
++ Libraries
+	+ [github.com/oz123/awesome-c](github.com/oz123/awesome-c)

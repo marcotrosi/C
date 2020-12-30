@@ -30,13 +30,13 @@ Have fun
 ## Resources
 
 + Learning C
-	+ [en.wikibooks.org/wiki/C_Programming](en.wikibooks.org/wiki/C_Programming)
-	+ [tutorialspoint.com/cprogramming/index.htm](tutorialspoint.com/cprogramming/index.htm)
-	+ [cprogramming.com](cprogramming.com)
-	+ [freecodecamp.org/news/the-c-beginners-handbook](freecodecamp.org/news/the-c-beginners-handbook)
-	+ [programiz.com/c-programming](programiz.com/c-programming)
-	+ [w3resource.com/c-programming-exercises](w3resource.com/c-programming-exercises)
+	+ [en.wikibooks.org/wiki/C_Programming](https://en.wikibooks.org/wiki/C_Programming)
+	+ [tutorialspoint.com/cprogramming/index.htm](https://tutorialspoint.com/cprogramming/index.htm)
+	+ [cprogramming.com](https://cprogramming.com)
+	+ [freecodecamp.org/news/the-c-beginners-handbook](https://freecodecamp.org/news/the-c-beginners-handbook)
+	+ [programiz.com/c-programming](https://programiz.com/c-programming)
+	+ [w3resource.com/c-programming-exercises](https://w3resource.com/c-programming-exercises)
 + Reference
-	+ [en.cppreference.com/w/c](en.cppreference.com/w/c)
+	+ [en.cppreference.com/w/c](https://en.cppreference.com/w/c)
 + Libraries
-	+ [github.com/oz123/awesome-c](github.com/oz123/awesome-c)
+	+ [github.com/oz123/awesome-c](https://github.com/oz123/awesome-c)

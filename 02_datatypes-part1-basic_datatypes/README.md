@@ -37,6 +37,8 @@ bit width   | datatype name          | range
 Could be? Yes, unfortunately you should not rely on these datatypes. It is probably better to use the datatypes defined in
 [`<stdint.h>`](https://en.cppreference.com/w/c/types/integer). The types defined there tell you exactly what you can expect.
 At least since C99. Before `<stdint.h>` existed you had to create your own datatypes using `typedef`.
+`<stdint.h>` also contains a list of MAX values for each unsigned type (`UINT8_MAX`, `UINT16_MAX`, `UINT32_MAX`, `UINT64_MAX`).
+There are no MIN values because the minimum value is simply 0.
 
 But how are now these values stored exactly? Let's have a closer look at some 8 bit examples.
 
@@ -91,6 +93,10 @@ bit width   | datatype name        | range
 32          | signed long int      | -2147483648 to 2147483647
 64          | signed long long int | -9223372036854775808 to 9223372036854775807
 
+`<stdint.h>` has again a list of MAX values, and this time also MIN values, for
+each signed type (`INT8_MIN`, `INT8_MAX`, `INT16_MIN`, `INT16_MAX`,
+`INT32_MIN`, `INT32_MAX`, `INT64_MIN` `INT64_MAX`).
+
 Let's see how these values are stored. First we check the positive range, so the most left bit is 0.
 
 decimal value | binary representation (1 bit signedness + 7 bits for the value)
@@ -127,13 +133,139 @@ And when we repeat the steps, we are back at 3. This is called the [Two's Comple
 
 ### Float
 
-Now it gets a bit little bit more difficult. C has the `float`, `double` and `long double` floating point datatypes.
-Similar as for integer there is a `<float.h>` for that kind of datatypes. The datatype is standardized in the
-[IEEE_754](https://en.wikipedia.org/wiki/IEEE_754). I don't want to spend too much time talking about the float
-structure, but in the following image you can see it and it shows an example of a 32 bit float. If you like you can try
-to understand how the value gets calculated.
+Now it gets a bit little bit more difficult. C has the `float`, `double` and `long double` floating point datatypes,
+with the following positive ranges. The negative values have the same ranges.
+
+bit width | datatype name | range
+----------|---------------|--------------------------
+32        | float         | 3.4*(10^-38)   to 3.4*(10^+38)
+64        | double        | 1.7*(10^-308)  to 1.7*(10^+308)
+80        | long double   | 3.4*(10^-4932) to 1.1*(10^+4932)
+
+Similar as for integer there is a `<float.h>` for float datatypes, where you can find
+the MIN and MAX values (`FLT_MIN`, `DBL_MIN`, `LDBL_MIN`, `FLT_MAX`, `DBL_MAX`, `LDBL_MAX`).
+
+The datatype is standardized in the [IEEE_754](https://en.wikipedia.org/wiki/IEEE_754). I don't want to spend too much
+time talking about the float structure, but in the following image you can see it and it shows an example of a 32 bit
+float. If you like you can try to understand how the value gets calculated.
 
 ![float](float.png)
+
+But there is one important topic we really need to talk about. This is essential if you want to use floats. Without that
+knowledge you might create some bugs in your code.
+
+We talked about ranges of datatypes before. But so far we talked only about the minimum and maximum values of datatypes,
+which is absolutely enough for integers, but for float values the world is a bit more complicated. 
+If you look at the values between 0.01 and 0.02, there are many more values in-between, right? Like 0.015 or 0.010039373.
+At least mathematically. But we can not store every infinite possible value in a float variable. I mean of course not,
+because we have a finite number of bits for the float value, and therefore a finite number of possible combinations of
+0s and 1s, and therefore a finite number of values we can represent with the float datatype.
+
+Here a little experiment you can try ...
+
+    printf("%f\n", 0.1f);
+
+This prints ...
+
+    0.100000
+
+So far so good, nothing really surprising to see here. Now let's crank up the number of decimal places printed to 35.
+
+    printf("%.35\n", 0.1f);
+
+... and this prints ...
+
+    0.10000000149011611938476562500000000
+
+What the heck happened here? Where are all these non-zero digits coming from?
+This is because there is no exact binary representation available in float for the value 0.1, so the closest value instead is used.
+And this is the dangerous part. You think that your float value is 0.1, but it's actually not.
+Here is an example that shows the consequence of all that.
+When we multiply 0.1 with 1,000,000.0 then we get 100,000.0. Mathematically that is correct. Let's see how the code
+handles that. Here an example that contains a "bug" ...
+
+    #include <stdio.h>
+
+    int main(void)
+    {
+        printf("%.35f\n", 0.1f);
+        printf("%.35f\n", 100000.0f);
+        printf("%.35f\n", 0.1f * 1000000.0f); // using float literal
+        printf("%.35f\n", 0.1f * 1000000.0);  // using double literal
+
+        if( 100000.0f == (0.1f * 1000000.0) ) // using double literal
+        {
+            printf("is equal\n");
+        }
+        else
+        {
+            printf("is NOT equal\n");
+        }
+        
+        return 0;
+    }
+
+... and this prints ...
+
+    0.10000000149011611938476562500000000
+    100000.00000000000000000000000000000000000
+    100000.00000000000000000000000000000000000
+    100000.00149011611938476562500000000000000
+    is NOT equal
+
+... and suddenly 0.1*1,000,000 is no longer 100,000.
+
+But the fact alone that a float value in most cases can never be represented exactly leads to the rule ...
+
+> never compare floating point values to equality or inequality
+
+But how can we compare two floats? We need to write a function that compares with an allowed deviation that the
+programmer has to specify. Most of the time this value is called epsilon. Here is a possible solution that shows the
+basic concept. We will compare 0.1 with 0.3 - 0.2 which is mathematically also 0.1, but not in the world of floats.
+
+
+    #include <stdio.h>
+    #include <math.h>
+
+    int isEqualDouble(double m, double n, double epsilon)
+    {
+        return (fabs(m-n) <= epsilon);
+    }
+
+    int main(void)
+    {
+
+        printf("        m is %.100lf\n", 0.1                    );
+        printf("        n is %.100lf\n", 0.3 - 0.2              );
+        printf("fabs(m-n) is %.100lf\n", fabs(0.1 - (0.3 - 0.2)));
+        printf("  epsilon is %.100lf\n", 0.000000000001         );
+
+        if(isEqualDouble(0.1, 0.3 - 0.2, 0.000000000001))
+        {
+            printf("is equal\n");
+        }
+        else
+        {
+            printf("is NOT equal\n");
+        }
+
+        return 0;
+    }
+
+    
+... which prints ...
+
+            m is 0.1000000000000000055511151231257827021181583404541015625000000000000000000000000000000000000000000000
+            n is 0.0999999999999999777955395074968691915273666381835937500000000000000000000000000000000000000000000000
+    fabs(m-n) is 0.0000000000000000277555756156289135105907917022705078125000000000000000000000000000000000000000000000
+      epsilon is 0.0000000000009999999999999999798866476292556153672528435061295226660149637609720230102539062500000000
+    is equal
+ 
+So you can see that none of the values is what you might have thought it would be. And that's why it is so important
+that we never compare floats for equality or inequality.
+
+If you like to read more [here is a good article](https://bitbashing.io/comparing-floats.html) I found on the internet.
+I can recommend as it also addresses some ideas on the epsilon value, which I have not done here.
 
 
 ## Interpretation
@@ -207,3 +339,5 @@ In the 5 example lines above we divide 10 by 4 which is mathematically 2.5.
 >
 > Be always aware of what you are doing, of the data type sizes, value interpretation and the
 > respective data ranges. Select the right data type for the purpose you need.
+>
+> Float values are mostly approximations and shall therefore never be used with `==` and `!=`.

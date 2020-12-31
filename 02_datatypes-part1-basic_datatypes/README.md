@@ -133,7 +133,7 @@ And when we repeat the steps, we are back at 3. This is called the [Two's Comple
 
 ### Float
 
-Now it gets a bit little bit more difficult. C has the `float`, `double` and `long double` floating point datatypes,
+Now it gets a little bit more difficult. C has the `float`, `double` and `long double` floating point datatypes,
 with the following positive ranges. The negative values have the same ranges.
 
 bit width | datatype name | range

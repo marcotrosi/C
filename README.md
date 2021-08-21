@@ -29,7 +29,16 @@ Have fun
 
 ## Resources
 
-+ Learning C
++ Books
+	+ [**Effective C**, ISBN-10: 1718501048, ISBN-13: 978-1718501041](https://www.amazon.com/dp/1718501048)
+	+ [**The GNU C Library Reference Manual**, ISBN-10: 1680921517, ISBN-13: 978-1680921519](https://www.amazon.com/dp/1680921517)
+	+ [**The C Language Programming**, ISBN-10: 0131103628, ISBN-13: 978-0131103627](https://www.amazon.com/dp/0131103628)
+	+ [**Learn C Programming: A beginner's guide to learning C programming the easy and disciplined way**, ISBN-10: 1789349915, ISBN-13: 978-1789349917](https://www.amazon.com/dp/1789349915)
+	+ [**C in a Nutshell: The Definitive Reference**, ISBN-10: 1491904755, ISBN-13: 978-1491904756](https://www.amazon.com/dp/1491904755)
+	+ [**C Programming For Dummies**, ISBN-10: 111974024X, ISBN-13: 978-1119740247](https://www.amazon.com/dp/111974024X)
+	+ [**C How To Program**, ISBN-10: 9780133976892, ISBN-13: 978-0133976892](https://www.amazon.com/dp/0133976890)
+	+ [**Extreme C**, ISBN-10: 1789343623, ISBN-13: 978-1789343625](https://www.amazon.com/dp/1789343623)
++ Learning C Online
 	+ [en.wikibooks.org/wiki/C_Programming](https://en.wikibooks.org/wiki/C_Programming)
 	+ [tutorialspoint.com/cprogramming/index.htm](https://tutorialspoint.com/cprogramming/index.htm)
 	+ [cprogramming.com](https://cprogramming.com)

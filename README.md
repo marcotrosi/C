@@ -38,6 +38,8 @@ Have fun
 	+ [**C Programming For Dummies**, ISBN-10: 111974024X, ISBN-13: 978-1119740247](https://www.amazon.com/dp/111974024X)
 	+ [**C How To Program**, ISBN-10: 9780133976892, ISBN-13: 978-0133976892](https://www.amazon.com/dp/0133976890)
 	+ [**Extreme C**, ISBN-10: 1789343623, ISBN-13: 978-1789343625](https://www.amazon.com/dp/1789343623)
+	+ [**Modern C**, ISBN-10: 1617295817, ISBN-13: 978-1617295812](https://www.amazon.com/dp/1617295817)
+	+ [**C Programming: A Modern Approach**, ISBN-10: 0393979504, ISBN-13: 978-0393979503](https://www.amazon.com/dp/0393979504)
 + Learning C Online
 	+ [en.wikibooks.org/wiki/C_Programming](https://en.wikibooks.org/wiki/C_Programming)
 	+ [tutorialspoint.com/cprogramming/index.htm](https://tutorialspoint.com/cprogramming/index.htm)

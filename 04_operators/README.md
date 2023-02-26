@@ -174,7 +174,8 @@ non-zero but it is not specified which non-zero value. Do not assume or rely on 
 
 Before you start with this section be sure to have understood [03_binary_and_hex_number_system](../03_binary_and_hex_number_system/README.md).
 
-The bitwise operators are, as the name implies, applied to every single bit of their operands.
+The bitwise operators are, as the name implies, applied to every single bit of their operands. Here is a kind of
+[overview or cheat sheet PDF](https://terathon.com/binary_fund.pdf).
 
 
 OPERATOR NAME       | SYNTAX

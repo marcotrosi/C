@@ -47,7 +47,11 @@ Have fun
 	+ [freecodecamp.org/news/the-c-beginners-handbook](https://freecodecamp.org/news/the-c-beginners-handbook)
 	+ [programiz.com/c-programming](https://programiz.com/c-programming)
 	+ [w3resource.com/c-programming-exercises](https://w3resource.com/c-programming-exercises)
+	+ [cbook](http://www.knosof.co.uk/cbook/cbook.html)
+	+ [c-faq](https://c-faq.com/)
+	+ [less-known-c](https://blog.joren.ga/less-known-c)
 + Reference
 	+ [en.cppreference.com/w/c](https://en.cppreference.com/w/c)
+	+ [binary fundamentals](https://terathon.com/binary_fund.pdf) 
 + Libraries
 	+ [github.com/oz123/awesome-c](https://github.com/oz123/awesome-c)

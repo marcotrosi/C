@@ -29,6 +29,13 @@ Have fun
 
 ## Resources
 
+Unfortunately it's difficult to get a free C Standard document. The best I can offer are these free drafts from various
+sites. Please report broken links.
+
++ C Standards
+    + [port70.net](http://port70.net/~nsz/c/)
+    + [open-std.org C99](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf)
+    + [open-std.org C11](https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf)
 + Books
 	+ [**Effective C**, ISBN-10: 1718501048, ISBN-13: 978-1718501041](https://www.amazon.com/dp/1718501048)
 	+ [**The GNU C Library Reference Manual**, ISBN-10: 1680921517, ISBN-13: 978-1680921519](https://www.amazon.com/dp/1680921517)
